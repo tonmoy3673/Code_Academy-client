@@ -34,22 +34,23 @@ const Header = () => {
               {
                 user?.uid ?
                 <>
-                <span>{user?.displayName}</span>
+                
                 
                 <Button onClick={handleLogOut} variant="primary">Logout</Button>
                 
                 </>
                 :
                 <>
-                <Link to='/login'>Login</Link>
-                <Link to='/register'>Register</Link>
+                <Link to='/login'><Button variant="outline-primary" className=' fw-semibold me-1'>Login</Button></Link>
+                
+                <Link to='/register'><Button variant="outline-secondary" className='fw-semibold'>Register</Button></Link>
                 </>
               }
             
             </Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
             {user?.photoURL ?
-              <Image style={{height:'30px'}} roundedCircle src={user?.photoURL}></Image>
+              <Image title={user?.displayName} style={{height:'30px'}} roundedCircle src={user?.photoURL}></Image>
              
 
               : <FaUser></FaUser>

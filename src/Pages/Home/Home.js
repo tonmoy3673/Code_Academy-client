@@ -31,7 +31,7 @@ const Home = () => {
     return (
         <div className='py-3'>
            <Container>
-            <Row xs={1} md={2} className='justify-space-center align-item-center text-center'>
+            <Row xs={1} md={2} className='justify-space-center align-item-center text-center py-3'>
             
             <Col className='text-start pb-2' lg='6'>
             <Lottie animationData={lottie} loop={true}></Lottie>

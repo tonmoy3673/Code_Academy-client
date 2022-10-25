@@ -41,7 +41,7 @@ const Home = () => {
         <Col lg='6'>
      
         <ButtonGroup vertical className='text-end py-4'>
-        <Button className='mb-3' variant="outline-success"><FaMailBulk/>    Login with Email & Password</Button>
+        <Button className='mb-3' variant="outline-success"><FaMailBulk/>  Login with Email & Password</Button>
         <Button onClick={handleGoogleSignIn} className='mb-3' variant="outline-primary"><FaGoogle/> Login with Google</Button>
         <Button variant="outline-dark"><FaGithub/> Login with GitHub</Button>
       </ButtonGroup>

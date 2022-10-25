@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import './Home.css';
 import Lottie from 'lottie-react';
@@ -7,12 +7,26 @@ import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import { FaGoogle ,FaGithub,FaMailBulk} from "react-icons/fa";
 import Carousel from 'react-bootstrap/Carousel';
-
+import { context } from '../../Context/AuthContext/AuthContext';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 
 
 
 const Home = () => {
+
+  const {logInWithGoogle}=useContext(context);
+  const googleProvider=new GoogleAuthProvider();
+  const handleGoogleSignIn =()=>{
+    logInWithGoogle(googleProvider)
+    .then(result=>{
+      const user=result.user;
+      console.log(user);
+    })
+    .catch(error=>console.error(error))
+  }
+
+
     return (
         <div className='py-3'>
            <Container>
@@ -28,7 +42,7 @@ const Home = () => {
      
         <ButtonGroup vertical className='text-end py-4'>
         <Button className='mb-3' variant="outline-success"><FaMailBulk/>    Login with Email & Password</Button>
-        <Button className='mb-3' variant="outline-primary"><FaGoogle/> Login with Google</Button>
+        <Button onClick={handleGoogleSignIn} className='mb-3' variant="outline-primary"><FaGoogle/> Login with Google</Button>
         <Button variant="outline-dark"><FaGithub/> Login with GitHub</Button>
       </ButtonGroup>
       <h5 className='text-secondary fw-semibold mt-4 text-start '><span className='fw-bold text-dark'>Code Academy</span> is a simple, yet effective way to check learners knowledge and an open up opportunities for student collaboration.Programming is a critical skill in today's economy, and there is a shortage of qualified developers. Whether you are new to coding, adding more skills, or advancing your career, 10 hours a week will prepare you for your ideal developer job.</h5>

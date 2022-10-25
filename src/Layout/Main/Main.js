@@ -6,7 +6,7 @@ import Header from '../Header/Header';
 
 const Main = () => {
     return (
-        <div>
+        <div className='bg-light'>
             <Header></Header>
             <Container>
             <Outlet></Outlet>

@@ -5,7 +5,7 @@ import Lottie from 'lottie-react';
 import lottie from '../Lottie/lottie.json';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import { FaGoogle ,FaGithub} from "react-icons/fa";
+import { FaGoogle ,FaGithub,FaMailBulk} from "react-icons/fa";
 import Carousel from 'react-bootstrap/Carousel';
 
 
@@ -27,7 +27,7 @@ const Home = () => {
         <Col lg='6'>
      
         <ButtonGroup vertical className='text-end py-4'>
-        <Button className='mb-3' variant="outline-primary"><FaGoogle/>    Login with Email & Password</Button>
+        <Button className='mb-3' variant="outline-success"><FaMailBulk/>    Login with Email & Password</Button>
         <Button className='mb-3' variant="outline-primary"><FaGoogle/> Login with Google</Button>
         <Button variant="outline-dark"><FaGithub/> Login with GitHub</Button>
       </ButtonGroup>

@@ -39,9 +39,12 @@ const AuthContext = ({children}) => {
         return signInWithPopup(auth,GoogleAuthProvider);
     }
 
+    const signInWithGithub=(GithubAuthProvider)=>{
+        return signInWithPopup(auth,GithubAuthProvider);
+    }
    
 
-    const authInfo={user,createUser,signIn,logOut,logInWithGoogle,updateUserProfile}
+    const authInfo={user,createUser,signIn,logOut,logInWithGoogle,updateUserProfile,signInWithGithub}
 
     return (
         <div>

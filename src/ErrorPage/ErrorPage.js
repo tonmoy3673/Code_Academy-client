@@ -4,7 +4,7 @@ import { useRouteError } from 'react-router-dom';
 const ErrorPage = () => {
     const error=useRouteError();
     return (
-        <div className='py-4'>
+        <div className='py-4 text-center'>
             <h2 className='text-danger fw-semibold py-3'>Oops! An Error Occurred 😢</h2>
             {error && (
           <div>

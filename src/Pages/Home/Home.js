@@ -9,6 +9,7 @@ import { FaGoogle ,FaGithub,FaMailBulk} from "react-icons/fa";
 import Carousel from 'react-bootstrap/Carousel';
 import { context } from '../../Context/AuthContext/AuthContext';
 import { GoogleAuthProvider } from 'firebase/auth';
+import { Link } from 'react-router-dom';
 
 
 
@@ -40,11 +41,13 @@ const Home = () => {
         </Col>
         <Col lg='6'>
      
+        <div className='login'>
         <ButtonGroup vertical className='text-end py-4'>
-        <Button className='mb-3' variant="outline-success"><FaMailBulk/>  Login with Email & Password</Button>
+        <Link to='/login'><Button className='mb-3'variant="outline-success"><FaMailBulk/>  Login with Email & Password</Button></Link>
         <Button onClick={handleGoogleSignIn} className='mb-3' variant="outline-primary"><FaGoogle/> Login with Google</Button>
         <Button variant="outline-dark"><FaGithub/> Login with GitHub</Button>
       </ButtonGroup>
+        </div>
       <h5 className='text-secondary fw-semibold mt-4 text-start '><span className='fw-bold text-dark'>Code Academy</span> is a simple, yet effective way to check learners knowledge and an open up opportunities for student collaboration.Programming is a critical skill in today's economy, and there is a shortage of qualified developers. Whether you are new to coding, adding more skills, or advancing your career, 10 hours a week will prepare you for your ideal developer job.</h5>
       
         </Col>

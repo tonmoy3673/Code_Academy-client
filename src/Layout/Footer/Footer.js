@@ -7,7 +7,7 @@ import './Footer.css'
 
 const Footer = () => {
     return (
-        <div className='container-fluid bg-dark text-center'>
+        <div className='container-fluid bg-dark text-center' fixed='bottom'>
             <Row className='pt-3'>
                 
                 <Col lg='4' className='text-white'>

@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { context } from '../../Context/AuthContext/AuthContext';
 
 const Login = () => {
-
+    const [error,setError]=useState('');
     const navigate=useNavigate();
   const {signIn}=useContext(context);
     const handleForm=(event)=>{
@@ -19,35 +19,38 @@ const Login = () => {
           const user=result.user;
           console.log('sign in', user)
           form.reset();
+          setError('');
           navigate('/home')
         })
         .catch(error=>{
           console.error(error);
+          setError(error.message);
         })
     }
     return (
         <div className='py-5'>
-            <Form onSubmit={handleForm}>
+            <h4 className='text-secondary text-center fw-bold py-4'>Please Login With Email & Password</h4>
+            <Form onSubmit={handleForm} className='w-50 mx-auto p-3 login'>
+            <Form.Text >
+          <h5 className="text-danger text-center mx-auto fw-bold">{error}</h5>
+        </Form.Text>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
+        <Form.Label className='text-secondary fw-semibold'>Enter Your Email Address</Form.Label>
         <Form.Control type="email" name='email' placeholder="Enter email" />
         
       </Form.Group>  
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
+        <Form.Label className='text-secondary fw-semibold'>Enter Your Password</Form.Label>
         <Form.Control type="password" name='password' placeholder="Password" />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-      <Button variant="primary" type="submit" className='mb-3'>
+      
+      <Button variant="primary" type="submit" className='mb-4'>
        Login
       </Button>
-      <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
+      <p className='text-start'><small>Create a new account ? Please <Link to='/register'> Register</Link></small></p>
     </Form>
+    
         </div>
     );
 };

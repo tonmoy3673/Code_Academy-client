@@ -18,7 +18,7 @@ const Header = () => {
   console.log(user);
     return (
         <div className='py-4 mb-4'>
-            <Navbar bg="light" expand="lg"  fixed='top'>
+            <Navbar bg="light" expand="lg" className='py-3' fixed='top'>
       <Container>
         <Navbar.Brand as={Link} to ={"/home"}><img src='https://codeacademy.lt/wp-content/uploads/2021/05/CodeAcademy-visi_Logotipas-juodas.png' alt='logo' className='logo'></img></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
@@ -50,6 +50,8 @@ const Header = () => {
             <Nav.Link eventKey={2} href="#memes">
             {user?.photoURL ?
               <Image style={{height:'30px'}} roundedCircle src={user?.photoURL}></Image>
+             
+
               : <FaUser></FaUser>
               }
             </Nav.Link>

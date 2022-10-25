@@ -3,3 +3,9 @@ h5 span{
     font-weight: 550;
     font-size: 23px;
 }
+.login{
+    /* border: 1px solid #bdc3c7; */
+    padding: 20px 0;
+    background-color:#f1f2f6;
+    border-radius: 5px;
+}

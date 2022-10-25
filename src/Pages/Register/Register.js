@@ -1,12 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { context } from '../../Context/AuthContext/AuthContext';
 
 const Register = () => {
     const navigate=useNavigate();
-    const {createUser}=useContext(context);
+    const {createUser,updateUserProfile}=useContext(context);
+    const [error,setError]=useState('');
     const handleForm=(event)=>{
         event.preventDefault();
         const form=event.target;
@@ -14,25 +15,38 @@ const Register = () => {
         const photoURL=form.photoURL.value;
         const email=form.email.value;
         const password=form.password.value;
-        console.log(email,password,photoURL,name);
+        
         createUser(email,password)
         .then(result=>{
           const user=result.user;
           console.log(user);
           form.reset();
+          handleUpdateProfile(name,photoURL);
           navigate('/home')
         })
         .catch(error=>{
           console.error(error);
+          setError(error.message);
         })
        
-
+        const handleUpdateProfile=(name,photoURL)=>{
+            const profile={
+                displayName:name,
+                photoURL:photoURL
+            }
+            updateUserProfile(profile)
+            .then(()=>{})
+            .catch(error=>console.error(error))
+        }
     }
 
     return (
         <div className='py-4'>
             <h4 className='text-secondary text-center fw-bold py-3'>Please Fill-up Registration Form</h4>
-            <Form onSubmit={handleForm} className='w-50 mx-auto'>
+            <Form.Text >
+          <h5 className="text-danger text-center mx-auto fw-bold">{error}</h5>
+        </Form.Text>
+            <Form onSubmit={handleForm} className='w-50 mx-auto login p-3'>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label className='text-secondary fw-semibold'>Your Full Name</Form.Label>
         <Form.Control type="text" name='name' placeholder="Enter email" />
@@ -53,15 +67,11 @@ const Register = () => {
         <Form.Label className='text-secondary fw-semibold'>Your Password</Form.Label>
         <Form.Control type="password" name='password' placeholder="Password" required />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-      <Button variant="primary" type="submit">
+      
+      <Button variant="primary" type="submit" className='mb-3'>
        Register
       </Button>
-      <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
+      <p className='text-start'><small>Already have an account ? Please <Link to='/login'>Login</Link></small></p>
     </Form>
         </div>
     );

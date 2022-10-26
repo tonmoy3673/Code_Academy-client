@@ -11,11 +11,13 @@ const Courses = () => {
     
     return (
         <div className='py-5'>
-           <h5>Our Courses</h5>
+           
            <Container>
+
            <Row className="g-4">
 
            <Col lg='3' >
+           <h5 className='text-secondary fw-bolder text-start py-3'>Our Courses Name </h5>
                     <SideNav></SideNav>
                 </Col>
 

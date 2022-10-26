@@ -4,12 +4,14 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
 
+
 const SingleCourse = ({course}) => {
     const {_id, title, price, total_view, image_url,rating} = course;
     return (
-        <div>
+        
            
-           <Card className='rounded text-center'>
+         <div >
+         <Card className='rounded text-center'>
         <Card.Img variant="top" src={image_url} className='bg-dark'/>
         <Card.Body>
         <Card.Title className='text-secondary fw-semibold'> {title}</Card.Title>
@@ -18,13 +20,14 @@ const SingleCourse = ({course}) => {
         </Card.Text>
         <Card.Text className='text-secondary fw-semibold'>Duration : {rating.duration}
         </Card.Text>
-       <Link to={`/course/${_id}`}><Button >Get Premium Pass</Button></Link>
+       <Link to={`/course/${_id}`}><Button variant="outline-secondary">Get Premium Pass</Button></Link>
       </Card.Body>
     </Card>
+         </div>
     
 
 
-        </div>
+        
     );
 };
 

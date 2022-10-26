@@ -3,6 +3,7 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import Main from "../Layout/Main/Main";
 import Blog from "../Pages/Blog/Blog";
 import Categories from "../Pages/Categories/Categories";
+import Course from "../Pages/Course/Course";
 import Courses from "../Pages/Courses/Courses";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -30,7 +31,14 @@ export const router=createBrowserRouter([
             },
             {
                 path:'/category/:id',
-               element:<Categories></Categories>
+               element:<Categories></Categories>,
+               loader:({params})=>fetch(`http://localhost:5000/category/${params.id}`)
+            },
+
+            {
+            path: "/course/:id",
+            element: <Course />,
+            loader: ({ params }) =>fetch(`http://localhost:5000/course/${params.id}`)
             },
             {
                 path:'/blog',

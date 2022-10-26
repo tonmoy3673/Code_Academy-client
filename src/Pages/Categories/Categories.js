@@ -1,9 +1,19 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import SingleCourse from '../SingleCourse/SingleCourse';
 
 const Categories = () => {
+
+    const courses=useLoaderData();
+   
     return (
-        <div>
-            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero animi rerum esse ex ab temporibus distinctio dignissimos ullam et aperiam? A eveniet recusandae, cum vero repudiandae libero nesciunt earum autem ab. Minus asperiores harum quia nemo praesentium deleniti excepturi possimus distinctio, dolor eligendi, repudiandae molestiae nobis veritatis facilis. Quis, quia.</h4>
+        <div className='py-5'>
+            
+            {
+                 courses.map((course) => (
+                    <SingleCourse key={course?._id} course={course} />
+                  ))
+            }
         </div>
     );
 };

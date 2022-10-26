@@ -1,31 +1,30 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
-import { Link } from 'react-router-dom';
 
-
-const SingleCourse = ({course}) => {
-    const {_id, title, price, total_view, image_url,rating} = course;
+const Course = () => {
+    const selectedCourse=useLoaderData();
+    const {author, details, image_url, price, rating, title, total_view}=selectedCourse;
     return (
         <div>
-           
-           <Card className='rounded text-center'>
+            <Card className='rounded text-center'>
         <Card.Img variant="top" src={image_url} className='bg-dark'/>
         <Card.Body>
         <Card.Title className='text-secondary fw-semibold'> {title}</Card.Title>
         <Card.Text className='text-secondary fw-semibold'><p>Price : {price} <spa>$</spa></p>
             <p>Total View : {total_view}</p>
+            <p>{author?.name}</p>
         </Card.Text>
         <Card.Text className='text-secondary fw-semibold'>Duration : {rating.duration}
         </Card.Text>
-       <Link to={`/course/${_id}`}><Button >Get Premium Pass</Button></Link>
+        <Card.Text className='text-secondary fw-semibold'>{details}
+        </Card.Text>
+       <Button >Download Course</Button>
       </Card.Body>
     </Card>
-    
-
-
         </div>
     );
 };
 
-export default SingleCourse;
+export default Course;

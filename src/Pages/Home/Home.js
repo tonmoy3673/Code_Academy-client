@@ -79,35 +79,35 @@ const Home = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src='https://images.pexels.com/photos/169573/pexels-photo-169573.jpeg?auto=compress&cs=tinysrgb&w=600'
+          src='https://miro.medium.com/max/1400/0*GKIyAWHbKbANm7d9.png'
           alt="First slide"
         />
         <Carousel.Caption>
-        <h4>HTML</h4>
+        
           
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://images.pexels.com/photos/4709285/pexels-photo-4709285.jpeg?auto=compress&cs=tinysrgb&w=600"
+          src="https://cdn1.epicgames.com/ue/product/Screenshot/Slide1.PNG-1920x1080-160df0b6db5b5e9131397f6dbe8289d2.jpg?resize=1&w=1920"
           alt="First slide" />
 
         <Carousel.Caption>
-        <h4>CSS</h4>
+        
           
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://images.pexels.com/photos/943096/pexels-photo-943096.jpeg?auto=compress&cs=tinysrgb&w=600"
+          src="https://res.cloudinary.com/practicaldev/image/fetch/s--3zWuwYa3--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pdib9r9rk5j1m7oala1p.png"
           alt="Third slide"
         />
 
         <Carousel.Caption>
           
-        <h4>JavaScript</h4>
+        
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

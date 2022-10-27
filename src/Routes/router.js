@@ -10,6 +10,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 
 
+
 export const router=createBrowserRouter([
     {
         path:'/',
@@ -37,9 +38,10 @@ export const router=createBrowserRouter([
 
             {
             path: "/course/:id",
-            element: <Course />,
+            element: <Course/>,
             loader: ({ params }) =>fetch(`http://localhost:5000/course/${params.id}`)
             },
+            
             {
                 path:'/blog',
                 element:<Blog></Blog>

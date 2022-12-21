@@ -8,6 +8,7 @@ import Courses from "../Pages/Courses/Courses";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
 
@@ -28,18 +29,18 @@ export const router=createBrowserRouter([
             {
                 path:'/courses',
                 element:<Courses></Courses>,
-                loader:()=>fetch('http://localhost:5000/course')
+                loader:()=>fetch('https://code-academy-server-theta.vercel.app/course')
             },
             {
                 path:'/category/:id',
                element:<Categories></Categories>,
-               loader:({params})=>fetch(`http://localhost:5000/category/${params.id}`)
+               loader:({params})=>fetch(`https://code-academy-server-theta.vercel.app/category/${params.id}`)
             },
 
             {
             path: "/course/:id",
-            element: <Course/>,
-            loader: ({ params }) =>fetch(`http://localhost:5000/course/${params.id}`)
+            element:<PrivateRoute> <Course/></PrivateRoute>,
+            loader: ({ params }) =>fetch(`https://code-academy-server-theta.vercel.app/course/${params.id}`)
             },
             
             {

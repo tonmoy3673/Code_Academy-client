@@ -13,9 +13,9 @@ const SingleCourse = ({course}) => {
          <div >
          <Card className='rounded text-center'>
         <Card.Img variant="top" src={image_url} className='bg-dark'/>
-        <Card.Body>
+        <Card.Body className='bg-light'>
         <Card.Title className='text-secondary fw-semibold'> {title}</Card.Title>
-        <Card.Text className='text-secondary fw-semibold'><p>Price : {price} <spa>$</spa></p>
+        <Card.Text className='text-secondary'><p>Price : {price} <spa>$</spa></p>
             <p>Total View : {total_view}</p>
         </Card.Text>
         <Card.Text className='text-secondary fw-semibold'>Duration : {rating.duration}
